@@ -6,7 +6,7 @@ import java.util.Date;
 public interface CarStore {
 
     Car save(String model, String color, String body, Date date, String photo,
-    String description, Advertiser advert);
+    String description, Advertiser advert, Date createAdvert);
 
     Collection<Car> findAllCar();
 

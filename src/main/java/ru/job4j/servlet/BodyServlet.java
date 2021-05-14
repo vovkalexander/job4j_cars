@@ -20,7 +20,7 @@ public class BodyServlet extends HttpServlet {
             throws ServletException, IOException {
         resp.setContentType("text/json");
         resp.setCharacterEncoding("UTF-8");
-        Collection<Body> bodies = new HbmCar().findAllBodies();
+        Collection<Body> bodies = new HbmCar().instOf().findAllBodies();
         resp.setHeader("Access-Control-Allow-Origin", "*");
         JSONArray jarray = new JSONArray(bodies);
         PrintWriter writer = new PrintWriter(resp.getOutputStream());

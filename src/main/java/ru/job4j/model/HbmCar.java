@@ -6,6 +6,8 @@ import org.hibernate.Transaction;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Date;
 import java.util.function.Function;
@@ -15,6 +17,7 @@ public class HbmCar implements AutoCloseable, CarStore {
             .configure().build();
     private final SessionFactory sf = new MetadataSources(registry)
             .buildMetadata().buildSessionFactory();
+
 
     private static final class Lazy {
         private static final CarStore CAR = new HbmCar();
@@ -77,7 +80,7 @@ public class HbmCar implements AutoCloseable, CarStore {
 
     @Override
     public Car save(String model, String name, String type, Date date, String photo,
-                    String description, Advertiser advert) {
+                    String description, Advertiser advert, Date createAdvert) {
         Color color = this.findColorById(Integer.parseInt(name));
         Body body = this.findBodyById(Integer.parseInt(type));
         return this.tx(session -> {
@@ -89,6 +92,7 @@ public class HbmCar implements AutoCloseable, CarStore {
             car.setPhoto(photo);
             car.setDescription(description);
             car.setAdvert(advert);
+            car.setDateOfAdverb(createAdvert);
             session.save(car);
             return car;
         });
@@ -133,6 +137,4 @@ public class HbmCar implements AutoCloseable, CarStore {
     public void close() {
         StandardServiceRegistryBuilder.destroy(registry);
     }
-
-
 }

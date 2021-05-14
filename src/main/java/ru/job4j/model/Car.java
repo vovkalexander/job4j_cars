@@ -1,5 +1,4 @@
 package ru.job4j.model;
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -25,6 +24,8 @@ public class Car {
     @ManyToOne
     @JoinColumn(name = "advert_id")
     private Advertiser advert;
+    @Temporal(TemporalType.DATE)
+    private Date dateOfAdverb;
 
     public Car() {
     }
@@ -99,6 +100,14 @@ public class Car {
 
     public void setAdvert(Advertiser advert) {
         this.advert = advert;
+    }
+
+    public Date getDateOfAdverb() {
+        return dateOfAdverb;
+    }
+
+    public void setDateOfAdverb(Date dateOfAdverb) {
+        this.dateOfAdverb = dateOfAdverb;
     }
 
     @Override
