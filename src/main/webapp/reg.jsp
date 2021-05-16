@@ -17,8 +17,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <title>CarSale</title>
+
 </head>
 <body>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
@@ -30,22 +31,34 @@
         </div>
         <div class="card-body">
             <form action="<%=request.getContextPath()%>/reg.do" method="post">
-                <div class="form-group">
-                    <label>Имя</label>
+                <label>Имя</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    </div>
                     <input type="text" class="form-control" name="name" required>
                 </div>
-                <div class="form-group">
-                    <label>Телефон</label>
+                <label>Телефон</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                    </div>
                     <input type="tel" class="form-control" name="tel"
                            pattern="[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
-                    <small>Format: 1-234-567-8910</small>
                 </div>
-                <div class="form-group">
-                    <label>Почта</label>
+                <small> Format: 1-234-567-8910</small></br>
+                <label>Почта</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-envelope-open" aria-hidden="true"></i></span>
+                    </div>
                     <input type="email" class="form-control" name="email" required>
                 </div>
-                <div class="form-group">
-                    <label>Пароль</label>
+                <label>Пароль</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                    </div>
                     <input type="text" class="form-control" name="password" required pattern="[0-9A-Za-z]{4,}">
                 </div>
                 <button type="submit" class="btn btn-primary" >Регистрироваться</button>

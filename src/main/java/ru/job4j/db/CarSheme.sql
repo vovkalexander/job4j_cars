@@ -47,7 +47,7 @@ name varchar(2000)
 
 
 insert into body
-(name)
+(type)
 values
 ('sedan'),
 ('cabriolet'),
